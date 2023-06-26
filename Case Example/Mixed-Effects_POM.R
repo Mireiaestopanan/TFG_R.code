@@ -150,7 +150,7 @@ plot_model(mod3, type = "pred", terms = c("groin.problem.prev"))
 
 ################################## MODELLING Using covariable tl.vs.no.tl.gproblem #############################################
 
-mod4 <- clmm(IS ~ tl.vs.no.tl.gproblem + (1 |week) +  (1 | id.player), data = dades_in)
+mod4 <- clmm(IS ~ tl.vs.no.tl.gproblem + (week) + (1 |week) +  (1 | id.player), data = dades_in)
 summary(mod4)
 
 ############################################ Checking proportional odds assumption ################################################3

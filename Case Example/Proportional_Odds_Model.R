@@ -147,22 +147,22 @@ plot(effect("tl.vs.no.tl.gproblem", mod2), style = "stacked", colors = c("red", 
 predict(mod2,newdata = data.frame(tl.vs.no.tl.gproblem="TL Groin Problem"),type="p")
 predict(mod2,newdata = data.frame(tl.vs.no.tl.gproblem="No TL Groin Problem"),type="p")
 
-#time loss Groin problem yes cumulative probabilities
-exp(mod2$zeta - mod2$coefficients)/(1 + exp(mod2$zeta - mod2$coefficients))
 #no time loss Groin problem yes cumulative probabilities
+exp(mod2$zeta - mod2$coefficients)/(1 + exp(mod2$zeta - mod2$coefficients))
+#yes time loss Groin problem yes cumulative probabilities
 exp(mod2$zeta)/(1 + exp(mod2$zeta))
 
 #Odds for all J-1 levels for both Groin Problem categories
-# tl yes cumulative probabilities
-tlgpycp <- exp(mod2$zeta - mod2$coefficients)/(1 + exp(mod2$zeta - mod2$coefficients))
 # tl no cumulative probabilities
+tlgpycp <- exp(mod2$zeta - mod2$coefficients)/(1 + exp(mod2$zeta - mod2$coefficients))
+# tl yes cumulative probabilities
 tlgpncp <- exp(mod2$zeta)/(1 + exp(mod2$zeta))
-# tl yes odds
+# tl no odds
 (tlgpycp/(1-tlgpycp))
-# tl no odds 
+# tl yes odds 
 (tlgpncp/(1-tlgpncp))
 
-#Now let's take the ratio of the tk yes  odds to the tl no  odds:
+#Now let's take the ratio of the tl no  odds to the tl yes  odds:
 (tlgpycp/(1-tlgpycp))/(tlgpncp/(1-tlgpncp))
 #(tlgpncp/(1-tlgpncp))/(tlgpycp/(1-tlgpycp))
 #Players reporting groing problems have higher odds of having to stop.
